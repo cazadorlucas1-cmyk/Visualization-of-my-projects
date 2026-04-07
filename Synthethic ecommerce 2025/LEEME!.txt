@@ -19,3 +19,4 @@ Synthethic ecommerce 2025/
 Si desea obtener el acceso al proyecto puede solicitarlo en mi gmail: cazadorlucas1@gmail.com
 
 Los archivos filtrados se encuentran en ingles, y los datos pedidos y filtrados se encuentra en español y ingles para mayor inclusión y legibilidad
+La base de datos al ser tan grande en tamaño, he decidido no ponerla, si la requieren puedo pasarsela
