@@ -1,0 +1,19 @@
+El proyecto consiste en la creación y manipulación de una tabla de negocios con datos crudos y posterior creación de una tabla de negocios legible y lista para hacer consultas en SQL y poder ser almacenada en una base de datos, en este caso obtengo los datos mediante tablas y graficas de acuerdo a lo pedido, de los datos obtenidos
+Ecommerce 2024/
+│
+├── data/
+│   ├── raw/              # datos originales (NO tocar)
+│   └── processed/        # datos limpios
+│
+├── dashboards/           # dashboards (Excel, .xlsx)
+│
+├── images/               # gráficos exportados (.png, .jpg)
+│
+├── reports/              # conclusiones acorde a lo pedido en PDF(.pdf)
+│
+├── request/              # datos solicitados del cliente
+│
+├── README.md             # explicación del proyecto(de la ruta de acceso al contenido
+Si desea obtener el acceso al proyecto puede solicitarlo en mi gmail: cazadorlucas1@gmail.com
+
+Los archivos filtrados se encuentran en ingles, y los datos filtrados se encuentra en español y ingles para mayor inclusión y legibilidad
