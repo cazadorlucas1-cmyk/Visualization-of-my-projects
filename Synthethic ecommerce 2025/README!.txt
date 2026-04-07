@@ -19,3 +19,5 @@ Synthetic ecommerce 2025/
 If you want access to the project you can request it at my gmail: hunterlucas1@gmail.com
 
 The leaked files are in English, and the requested and filtered data is in Spanish and English for greater inclusion and readability.
+
+Since the database is so large, I've decided not to include it here, but I can provide it if you needed.
