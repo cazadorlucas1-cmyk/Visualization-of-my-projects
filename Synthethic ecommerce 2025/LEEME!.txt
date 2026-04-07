@@ -1,0 +1,21 @@
+El proyecto consiste en la extracción, manipulación de una tabla de negocios con datos crudos y posterior manipulación y consultas de una tabla de negocios en SQL y para poder recopilar los datos solicitados por la empresa, según las indicaciones y consultas, creo y visualización los datos obtenidos para la posterior toma de insight y conclusiones para la toma de decisiones de la empresa, para una mejor productividad, y optimización y mayor eficiencia
+
+
+Synthethic ecommerce 2025/
+│
+├── data/
+│   ├── raw/              # datos originales (NO tocar)
+│   └── processed/        # datos limpios, procesados y ordenados
+│
+├── dashboards/           # dashboards (Excel, .xlsx)
+│
+├── images/               # gráficos exportados (.png, .jpg)
+│
+├── reports/              # conclusiones acorde a lo pedido en PDF(.pdf)
+│
+├── request/              # datos solicitados del cliente
+│
+├── LEEME!.md             # explicación del proyecto(de la ruta de acceso al contenido)
+Si desea obtener el acceso al proyecto puede solicitarlo en mi gmail: cazadorlucas1@gmail.com
+
+Los archivos filtrados se encuentran en ingles, y los datos pedidos y filtrados se encuentra en español y ingles para mayor inclusión y legibilidad
