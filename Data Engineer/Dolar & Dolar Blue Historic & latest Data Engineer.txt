@@ -1,0 +1,37 @@
+The project consists of extracting and manipulating data from an API for collecting the current Argentine dollar exchange rate, both historical (from 2011 to the present) and incremental, using a created table for new data from 2026 onwards. The updated data is stored with raw data and subsequently manipulated and queried in a Python table to collect the data requested by the company and store it in a MinIO database.
+
+In the next part of the work, I remove null and duplicate values, redefine some data types, rename columns for better readability, and format date columns to avoid conflicts with others. I use the `min` and `max` functions and the `avg` function of the Evolution dataframe.
+
+Finally, I extract the collected data and save it in Delta Lake format for later interpretation, manipulation, and visualization by data analysts.
+
+1)
+1. We install libraries to use their built-in functionalities.
+
+2. We import libraries to use in the... Code
+
+3. We define functions to use throughout the data extraction and storage process.
+
+4. We begin extracting data from the API using its URL. I define the endpoints, obtain the data from each endpoint in JSON format, and save it in `json_latest` and `json_evolution`. I verify the data, convert it to a dataframe, and print it to ensure I have it.
+
+5. We define the time zone, which is Argentina. Initially, I wanted to measure the time in `dt_latest` for each hour, but something unexpected happened.
+
+The API only updates on weekdays; it doesn't update on Saturdays and Sundays. I'm really disappointed, but I'm almost certain that if we update the program on Monday and Tuesday, it will return data and save it.
+
+6. I then begin incremental extraction, but since the API only returns the last nested record, I created a table to store the data from the last update, so that every time there is an update and the Compare the data to the current one; if it's different, replace it, thus performing an incremental extraction. I avoid duplicates and save only if the data is recent.
+
+7. I perform a full extract to df_evolution, which literally contains records saved from 2011 to the present, giving us exactly (so far) 9005 records.
+
+8. I implement the options to link the database with MinIO, i.e., Delta Lake.
+
+9. Using the date data in dt_latest as a guide, I create a partition column by date.
+
+I read the existing Delta table; if it doesn't exist, I create it, and I only keep the new records, saving them only if they are new using append mode.
+
+I read the Delta table from MinIO and convert it to pandas to view the first rows.
+
+10. I ensure data integrity and eliminate duplicates by date and source. I save the entire history to Delta Lake using overwrite mode and ask it how many records it will return, exactly 9005. I define the path to the... 1) I read the table again to validate and display it.
+
+2)
+1) I remove nulls and duplicates, redefine some data types, rename columns to make them more readable, and format date columns so they don't conflict with others.
+2) I use the min and max functions and the avg of the Evolution dataframe.
+3) I extract the collected data and save it in Delta Lake format for later interpretation, manipulation, and visualization by data analysts.

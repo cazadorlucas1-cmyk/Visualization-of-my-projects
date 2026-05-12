@@ -1,0 +1,37 @@
+El proyecto consiste en la extracción, manipulación de una API de recolección de datos del dólar Argentino Actual, tanto el histórico(desde 2011 hasta el actual) y otro como extracción incremental, por medio de una tabla creada, sobre los nuevos datos desde 2026, y guardan los datos actualizados,  con datos crudos y posterior manipulación y consultas de una tabla en python y para poder recopilar los datos solicitados por la empresa y guardarlos en una base de datos en MinIO, 
+
+en la siguiente parte del trabajo, elimino nulos y duplicados, re defino algunos tipos de datos, renombro columnas para que sean mas legibles, y formateo columnas de fecha para que no se contraste con otras, utilizo las función min y max y el avg del dataframe evolution
+
+para finalizar los datos recopilados los extraigo y los guardo en formato delta lake, para la posterior interpretación y manipulación y visualización de los analistas de datos
+
+1)
+1 instalamos librerarias para poder utilizar sus funcionalidades que traen
+
+2 importamos librerias para usar en el codigo
+
+3 definimos funciones para utilizar alo largo de la extraccion y almacenamiento de datos
+
+4 empezamos con la extraccion de datos de la api por medio de su url, defino los endpoints, obtenemos los datos de cada endpoint en formato json y lo guardamos en json_latest y json_evolution, confirmo datos y los paso a dataframe y los imprimo para asegurar que los tengo
+
+5 definimos la zona horaria que es la Argentina en un principio yo queria hacer una medicioion por cada hora de los datos dt_latest, pero sucedio algo inesperado
+
+la api solo actualiza los dias de semana, sabado y domingo no actualiza, me la re bajo pero estoy casi seguro que si actualizamos el programa el lunes y martes nos devolveran datos y los guardara
+
+6 ahi empiezo con la extraccion incremental pero como la api solo devuelve el ultimo registro anidado, cree una tabla para que guarden los datos de la ultima actualizacion, para que cada vez que haya una actualizacion y la compara con la actual, si es distinto la cambia, y de esa manera hacer una extraccion incremenetal, evito duplicados y guardo si los datos son recientes
+
+7 Hago el full extract a df_evolution que literalmente son registros guardados desde 2011 hasta ahora, dando nos exactamente(hasta ahora) 9005 registros
+
+8 implemento las opciones para vincular la base de datos con MinIO osea el delta lake
+
+9 al guiarme con los date en el dt_latest, hago que cree una columna particion por fecha,
+
+leo la tabla delta existente si no existe la creo, y mantengo solo los nuevos registros, y los guardo solo si son nuevos con el mode append
+
+leo la tabla delta desde minio y convierto a pandas, para mirar las primeras filas
+
+10 aseguro datos y elimino duplicados por date y source, guardo todo el historico en deltalake con modo overwrite y le pido cuantos registros devuelve, exactamente los 9005, defino la ruta de la tabla, leo la tabla de nuevo para validar y mostrar
+
+2)
+1 elimino nulos y duplicados, re defino algunos tipos de datos, renombro columnas para que sean mas legibles, y formateo columnas de fecha para que no se contraste con otras
+2 utilizo las función min y max y el avg del dataframe evolution
+3 los datos recopilados los extraigo y los guardo en formato delta lake, para la posterior interpretación y manipulación y visualización de los analistas de datos
